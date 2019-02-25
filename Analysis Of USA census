@@ -1,0 +1,43 @@
+Query 1
+# Retrieving content from the table
+SELECT * FROM `bigquery-public-data.census_bureau_international.country_names_area` LIMIT 100
+Ans:  https://docs.google.com/spreadsheets/d/1xTvUKWrLHA352ZClCpmLPeunBKboYjgA-lDF8tqmqxk/edit?usp=sharing
+Query 2
+#Counting the total no. of countries in the dataset
+SELECT count(distinct(country_name)) FROM `bigquery-public-data.census_bureau_international.country_names_area`
+Ans: 228
+Query 3
+#Counting no of times robberies have occurred in the data
+SELECT COUNT ( primary_type) FROM `bigquery-public-data.chicago_crime.crime` WHERE PRIMARY_TYPE="ROBBERY"
+Ans:257857
+Query 4
+#Find the maximum population
+SELECT MAX(midyear_population) FROM `bigquery-public-data.census_bureau_international.midyear_population` LIMIT 1000
+Ans: 1656553632
+Query 5
+# Find the minimum population
+SELECT MIN(midyear_population) FROM `bigquery-public-data.census_bureau_international.midyear_population` LIMIT 1000
+Ans:2028
+
+
+
+Query 6
+# Find the Average growth rate of the population
+SELECT AVG(growth_rate) FROM `bigquery-public-data.census_bureau_international.birth_death_growth_rates` LIMIT 1000
+Ans: 1.102930820960117
+Query 7
+# To arrange the growth rates in descending order corresponding to the year
+SELECT year,growth_rate FROM `bigquery-public-data.census_bureau_international.birth_death_growth_rates` ORDER BY growth_rate DESC   LIMIT 1000
+Ans: https://docs.google.com/spreadsheets/d/1LGBR20GQnHl14TFCv5dTLzv8XLYyfBXQSMz8xwYNV5E/edit?usp=sharing
+Query 8
+#Arrange the countries in ascending order of their area
+SELECT country_name,country_area FROM `bigquery-public-data.census_bureau_international.country_names_area` ORDER BY country_area ASC LIMIT 1000
+Ans: https://docs.google.com/spreadsheets/d/1ZATc49JY2yfl4BLbMJppS-ejIT6Nfd1AA1k2ZQ7cjzA/edit?usp=sharing
+Query 9
+# Sum of male population in different countries
+SELECT SUM(POPULATION) FROM `bigquery-public-data.census_bureau_international.midyear_population_agespecific` WHERE sex="Male"  LIMIT 1000
+Ans: 240642113084
+Query 10
+# Sum of female population in different countries
+SELECT SUM(POPULATION) FROM `bigquery-public-data.census_bureau_international.midyear_population_agespecific` WHERE sex="Female"  LIMIT 1000
+Ans: 238554639250
